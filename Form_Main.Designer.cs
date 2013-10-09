@@ -42,13 +42,15 @@
             this.mikrotikListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new MikrotikSSHBackup.DataSet1();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tsb_Add = new System.Windows.Forms.ToolStripButton();
             this.tsb_Edit = new System.Windows.Forms.ToolStripButton();
             this.tsb_Delete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsb_Exit = new System.Windows.Forms.ToolStripButton();
             this.tsb_About = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsb_Email = new System.Windows.Forms.ToolStripButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mikrotikListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -161,33 +163,14 @@
             this.tsb_Delete,
             this.toolStripSeparator1,
             this.tsb_Exit,
-            this.tsb_About});
+            this.tsb_About,
+            this.toolStripSeparator2,
+            this.tsb_Email});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(634, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_StartBackup, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 25);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(634, 387);
-            this.tableLayoutPanel1.TabIndex = 10;
             // 
             // tsb_Add
             // 
@@ -216,6 +199,11 @@
             this.tsb_Delete.Text = "Delete";
             this.tsb_Delete.Click += new System.EventHandler(this.tsb_Delete_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // tsb_Exit
             // 
             this.tsb_Exit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -235,6 +223,38 @@
             this.tsb_About.Size = new System.Drawing.Size(60, 22);
             this.tsb_About.Text = "About";
             this.tsb_About.Click += new System.EventHandler(this.tsb_About_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsb_Email
+            // 
+            this.tsb_Email.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsb_Email.Image = global::MikrotikSSHBackup.Properties.Resources.mail_24x24;
+            this.tsb_Email.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Email.Name = "tsb_Email";
+            this.tsb_Email.Size = new System.Drawing.Size(56, 22);
+            this.tsb_Email.Text = "Email";
+            this.tsb_Email.Click += new System.EventHandler(this.tsb_Email_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btn_StartBackup, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 25);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(634, 387);
+            this.tableLayoutPanel1.TabIndex = 10;
             // 
             // Form_Main
             // 
@@ -280,6 +300,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn LastBackup;
         private System.Windows.Forms.DataGridViewTextBoxColumn StateBackup;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton tsb_Email;
     }
 }
 

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-
 using System.Linq;
-
 using System.IO;
 
 using Renci.SshNet;
@@ -16,6 +11,8 @@ namespace MikrotikSSHBackup
 {
     public partial class Form_Main : Form
     {
+        Props props = new Props();
+
         #region FormAction
         public Form_Main()
         {
@@ -25,10 +22,13 @@ namespace MikrotikSSHBackup
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             saveDataSet();
+            writeSetting();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            readSetting();
+
             loadDataSet();
                     
             string[] arguments = Environment.GetCommandLineArgs();
@@ -39,16 +39,18 @@ namespace MikrotikSSHBackup
                 if (args == "Backup")
                 {
                     StartBackup();
+                    readSetting();
+                    SendEmailReport();
                     Application.Exit();
                 }
-            }
-
+            }            
         }
         #endregion
 
         private void btn_StartBackup_Click(object sender, EventArgs e)
         {
             StartBackup();
+            SendEmailReport();
         }
 
         private void StartBackup()
@@ -288,6 +290,67 @@ namespace MikrotikSSHBackup
             Form_About about = new Form_About();
             about.ShowDialog();
         }
+        #endregion
+
+        #region Email
+        private void tsb_Email_Click(object sender, EventArgs e)
+        {
+            Form_Email formEmail = new Form_Email();
+            formEmail.ShowDialog();
+        }
+
+        private void SendEmailReport()
+        {
+            if (EmailStatic.EnableEmail == true)
+            {
+                string Report = "WARNING!!! A backup copy of the following elements has not been created" + Environment.NewLine;
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells[0].Value != null)
+                    {
+                        if (row.Cells[5].Value.ToString() == "Error")
+                        {
+                            Report += "Name: " + row.Cells[0].Value.ToString() + " IP: " + row.Cells[1].Value.ToString() + Environment.NewLine;
+                        }
+                    }
+                }
+
+                SendEmailReport ser = new SendEmailReport();
+                ser.SendEmail(Report);
+            }
+        }
+
+        #endregion
+
+        #region Settings
+        private void readSetting()
+        {
+            props.ReadXml();
+
+            EmailStatic.EnableEmail = props.Fields.EnableEmail;
+            EmailStatic.EmailServer = props.Fields.EmailServer;
+            EmailStatic.EmailPort = props.Fields.EmailPort;
+            EmailStatic.EnableEmailSSL = props.Fields.EnableEmailSSL;
+            EmailStatic.EmailUser = props.Fields.EmailUser;
+            EmailStatic.EmailPassowrd = props.Fields.EmailPassowrd;
+            EmailStatic.EmailAddress = props.Fields.EmailAddress;
+        }
+
+        private void writeSetting()
+        {
+            props.Fields.EnableEmail    = EmailStatic.EnableEmail;
+            props.Fields.EmailServer    = EmailStatic.EmailServer;
+            props.Fields.EmailPort      = EmailStatic.EmailPort;
+            props.Fields.EnableEmailSSL = EmailStatic.EnableEmailSSL;
+            props.Fields.EmailUser      = EmailStatic.EmailUser;
+            props.Fields.EmailPassowrd  = EmailStatic.EmailPassowrd;
+            props.Fields.EmailAddress   = EmailStatic.EmailAddress;            
+
+
+            props.WriteXml();
+        }
+
         #endregion
 
     }

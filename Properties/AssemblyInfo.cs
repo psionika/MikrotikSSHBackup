@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("Mikrotik SSH Backup")]
-[assembly: AssemblyDescription("Software for centralized Mikrotik SSH Backup developed Arxont. Uses icons from iconza.ru and SSH library sshnet.codeplex.com")]
+[assembly: AssemblyDescription("Software for centralized Mikrotik SSH Backup developed Arxont. Uses icons from iconza.ru and SSH library sshnet.codeplex.com. Contact: arxont@itchita.ru, arxont.blogspot.com. Source: https://github.com/psionika/MikrotikSSHBackup")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Arxont")]
 [assembly: AssemblyProduct("Mikrotik SSH Backup")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.0.3")]
-[assembly: AssemblyFileVersion("0.0.0.3")]
+[assembly: AssemblyVersion("0.0.1")]
+[assembly: AssemblyFileVersion("0.0.1")]

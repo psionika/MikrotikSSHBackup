@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailStatic.cs" />
+    <Compile Include="Props.cs" />
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
@@ -66,6 +68,12 @@
     </Compile>
     <Compile Include="Form_About.Designer.cs">
       <DependentUpon>Form_About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Email.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Email.Designer.cs">
+      <DependentUpon>Form_Email.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
@@ -87,11 +95,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendEmailReport.cs" />
     <EmbeddedResource Include="Form_About.resx">
       <DependentUpon>Form_About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_AddEdit.resx">
       <DependentUpon>Form_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Email.resx">
+      <DependentUpon>Form_Email.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
@@ -148,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\mail_24x24.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
