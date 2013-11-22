@@ -303,6 +303,7 @@ namespace MikrotikSSHBackup
         {
             if (EmailStatic.EnableEmail == true)
             {
+                int i = 0;
                 string Report = "WARNING!!! A backup copy of the following elements has not been created" + Environment.NewLine;
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -311,13 +312,17 @@ namespace MikrotikSSHBackup
                     {
                         if (row.Cells[5].Value.ToString() == "Error")
                         {
+                            i++;
                             Report += "Name: " + row.Cells[0].Value.ToString() + " IP: " + row.Cells[1].Value.ToString() + Environment.NewLine;
                         }
                     }
                 }
 
-                SendEmailReport ser = new SendEmailReport();
-                ser.SendEmail(Report);
+                if (i > 0)
+                {
+                    SendEmailReport ser = new SendEmailReport();
+                    ser.SendEmail(Report);
+                }
             }
         }
 
