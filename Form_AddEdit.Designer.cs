@@ -166,8 +166,10 @@
             // 
             // Form_AddEdit
             // 
+            this.AcceptButton = this.btn_Ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btn_Cancel;
             this.ClientSize = new System.Drawing.Size(346, 219);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

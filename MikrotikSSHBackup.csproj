@@ -11,7 +11,8 @@
     <AssemblyName>MikrotikSSHBackup</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,13 +48,18 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
-    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmailStatic.cs" />
+    <Compile Include="Form_ProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ProgressBar.Designer.cs">
+      <DependentUpon>Form_ProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Props.cs" />
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_LastBackup.resx">
       <DependentUpon>Form_LastBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ProgressBar.resx">
+      <DependentUpon>Form_ProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.IO;
 
+using System.Globalization;
 using Renci.SshNet;
 
 namespace MikrotikSSHBackup
@@ -49,13 +50,18 @@ namespace MikrotikSSHBackup
 
         private void btn_StartBackup_Click(object sender, EventArgs e)
         {
-            StartBackup();
-            SendEmailReport();
+            try
+            {
+                Form_ProgressBar Progress = new Form_ProgressBar();
+                backgroundWorker1.RunWorkerAsync();
+                Progress.ShowDialog();
+            }
+            catch
+            { }
         }
 
         private void StartBackup()
         {            
-
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells[0].Value != null)
@@ -64,16 +70,22 @@ namespace MikrotikSSHBackup
                     {
                         Directory.CreateDirectory(GetFolderName(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString()));
 
+                        string filename = GetFolderName(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString()) + 
+                            row.Cells[0].Value.ToString() + ", IP " + 
+                            row.Cells[1].Value.ToString() + " " +
+                            DateTime.Now.ToString(CultureInfo.InvariantCulture)
+                             .Replace(@"/", "-")
+                             .Replace(":", "-")+".txt";
+                                                
                         saveAsOwnTextFormat(
-                            GetFolderName(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString()) + row.Cells[0].Value.ToString() + ", IP " + row.Cells[1].Value.ToString() + " " + DateTime.Now.ToString().Replace(":", "-") + ".txt",
+                            filename,
                             MikrotikExportCompact(row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString())
                             );
 
                         row.Cells[5].Value = "OK";
 
                         foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            //Меняем цвет ячейки
+                        {                            
                             cell.Style.BackColor = Color.LightGreen;
                             cell.Style.ForeColor = Color.Black;
                         }
@@ -81,8 +93,7 @@ namespace MikrotikSSHBackup
                     catch
                     {
                         foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            //Меняем цвет ячейки
+                        {                            
                             cell.Style.BackColor = Color.LightPink;
                             cell.Style.ForeColor = Color.Black;
                         }
@@ -94,6 +105,12 @@ namespace MikrotikSSHBackup
         }
 
         #region Datagrid Action
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1) editMikrotik();
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {            
             if (e.RowIndex < 0 || e.ColumnIndex !=
@@ -243,13 +260,18 @@ namespace MikrotikSSHBackup
 
         private void tsb_Edit_Click(object sender, EventArgs e)
         {
+            editMikrotik();
+        }
+
+        private void editMikrotik()
+        {
             if (dataGridView1.CurrentRow != null)
             {
                 string name = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 string ip = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 string login = dataGridView1.CurrentRow.Cells[2].Value.ToString();
                 string password = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                
+
                 Form_AddEdit fae = new Form_AddEdit(name, ip, login, password);
                 fae.ShowDialog();
 
@@ -260,12 +282,11 @@ namespace MikrotikSSHBackup
                     mikrotikRow["Name"] = fae.tb_Name.Text;
                     mikrotikRow["IP"] = fae.tb_IP.Text;
                     mikrotikRow["Login"] = fae.tb_Login.Text;
-                    mikrotikRow["Password"] = fae.tb_Password.Text;                    
+                    mikrotikRow["Password"] = fae.tb_Password.Text;
                 }
             }
 
             saveDataSet();
-
         }
 
         private void tsb_Delete_Click(object sender, EventArgs e)
@@ -350,13 +371,23 @@ namespace MikrotikSSHBackup
             props.Fields.EnableEmailSSL = EmailStatic.EnableEmailSSL;
             props.Fields.EmailUser      = EmailStatic.EmailUser;
             props.Fields.EmailPassowrd  = EmailStatic.EmailPassowrd;
-            props.Fields.EmailAddress   = EmailStatic.EmailAddress;            
-
+            props.Fields.EmailAddress   = EmailStatic.EmailAddress; 
 
             props.WriteXml();
         }
 
         #endregion
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            StartBackup();
+            SendEmailReport();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {            
+            Form_ProgressBar.ActiveForm.Close();
+        }
 
     }
 }
