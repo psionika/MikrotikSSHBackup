@@ -83,7 +83,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_LastBackup";
             this.Text = "LastBackup";
-            this.Load += new System.EventHandler(this.LastBackup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.scintilla1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

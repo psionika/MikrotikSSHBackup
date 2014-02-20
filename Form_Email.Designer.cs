@@ -93,7 +93,7 @@
             this.txb_Email.Location = new System.Drawing.Point(3, 217);
             this.txb_Email.Name = "txb_Email";
             this.txb_Email.Size = new System.Drawing.Size(172, 20);
-            this.txb_Email.TabIndex = 6;
+            this.txb_Email.TabIndex = 7;
             // 
             // txb_User
             // 
@@ -101,7 +101,7 @@
             this.txb_User.Location = new System.Drawing.Point(3, 147);
             this.txb_User.Name = "txb_User";
             this.txb_User.Size = new System.Drawing.Size(172, 20);
-            this.txb_User.TabIndex = 4;
+            this.txb_User.TabIndex = 5;
             // 
             // txb_Port
             // 
@@ -109,7 +109,7 @@
             this.txb_Port.Location = new System.Drawing.Point(3, 77);
             this.txb_Port.Name = "txb_Port";
             this.txb_Port.Size = new System.Drawing.Size(172, 20);
-            this.txb_Port.TabIndex = 2;
+            this.txb_Port.TabIndex = 3;
             this.txb_Port.Text = "25";
             // 
             // chb_SendEmail
@@ -119,7 +119,7 @@
             this.chb_SendEmail.Location = new System.Drawing.Point(81, 10);
             this.chb_SendEmail.Name = "chb_SendEmail";
             this.chb_SendEmail.Size = new System.Drawing.Size(15, 14);
-            this.chb_SendEmail.TabIndex = 0;
+            this.chb_SendEmail.TabIndex = 1;
             this.chb_SendEmail.UseVisualStyleBackColor = true;
             this.chb_SendEmail.CheckedChanged += new System.EventHandler(this.chb_SendEmail_CheckedChanged);
             // 
@@ -140,7 +140,7 @@
             this.btn_SendTestEmail.Location = new System.Drawing.Point(79, 251);
             this.btn_SendTestEmail.Name = "btn_SendTestEmail";
             this.btn_SendTestEmail.Size = new System.Drawing.Size(135, 23);
-            this.btn_SendTestEmail.TabIndex = 7;
+            this.btn_SendTestEmail.TabIndex = 8;
             this.btn_SendTestEmail.Text = "Send test message";
             this.btn_SendTestEmail.UseVisualStyleBackColor = true;
             this.btn_SendTestEmail.Click += new System.EventHandler(this.btn_SendTestEmail_Click);
@@ -152,7 +152,7 @@
             this.btn_OK.Location = new System.Drawing.Point(51, 286);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(75, 23);
-            this.btn_OK.TabIndex = 8;
+            this.btn_OK.TabIndex = 9;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = true;
             this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
@@ -164,7 +164,7 @@
             this.btn_Cancel.Location = new System.Drawing.Point(198, 286);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_Cancel.TabIndex = 9;
+            this.btn_Cancel.TabIndex = 10;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
             // 
@@ -204,7 +204,7 @@
             this.txb_Server.Location = new System.Drawing.Point(3, 42);
             this.txb_Server.Name = "txb_Server";
             this.txb_Server.Size = new System.Drawing.Size(172, 20);
-            this.txb_Server.TabIndex = 1;
+            this.txb_Server.TabIndex = 2;
             // 
             // txb_Password
             // 
@@ -212,7 +212,7 @@
             this.txb_Password.Location = new System.Drawing.Point(3, 182);
             this.txb_Password.Name = "txb_Password";
             this.txb_Password.Size = new System.Drawing.Size(172, 20);
-            this.txb_Password.TabIndex = 5;
+            this.txb_Password.TabIndex = 6;
             // 
             // label5
             // 
@@ -251,7 +251,7 @@
             this.chb_EnSSL.Location = new System.Drawing.Point(81, 115);
             this.chb_EnSSL.Name = "chb_EnSSL";
             this.chb_EnSSL.Size = new System.Drawing.Size(15, 14);
-            this.chb_EnSSL.TabIndex = 3;
+            this.chb_EnSSL.TabIndex = 4;
             this.chb_EnSSL.UseVisualStyleBackColor = true;
             // 
             // Form_Email

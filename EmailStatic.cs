@@ -9,7 +9,7 @@ namespace MikrotikSSHBackup
         public static String EmailPort { get; set; }
         public static Boolean EnableEmailSSL { get; set; }
         public static String EmailUser { get; set; }
-        public static String EmailPassowrd { get; set; }
+        public static String EmailPassword { get; set; }
         public static String EmailAddress { get; set; }
     }
 }

@@ -6,16 +6,17 @@ namespace MikrotikSSHBackup
 {
     class SendEmailReport
     {
-        public void SendEmail(string textMessage)
+        public void SendEmail(string textMessage, string Server, string Port, string User, string Password, Boolean EnableSSL, string Address)
         {   
-            SmtpClient Smtp_Client = new SmtpClient(EmailStatic.EmailServer, Convert.ToInt32(EmailStatic.EmailPort));
-            Smtp_Client.Credentials = new NetworkCredential(EmailStatic.EmailUser, EmailStatic.EmailPassowrd);
-            
-            Smtp_Client.EnableSsl = EmailStatic.EnableEmailSSL;
-                        
-            MailMessage Message = new MailMessage();
-            Message.From = new MailAddress(EmailStatic.EmailUser);
-            Message.To.Add(new MailAddress(EmailStatic.EmailAddress));
+            SmtpClient Smtp_Client = new SmtpClient(Server, Convert.ToInt32(Port))
+            {
+                Credentials = new NetworkCredential(User, Password),
+                EnableSsl = EnableSSL
+            };
+
+            MailMessage Message = new MailMessage {From = new MailAddress(User)};
+
+            Message.To.Add(new MailAddress(Address));
             Message.Subject = "MikrotikSSHBackup Report";
             Message.Body = textMessage;
             

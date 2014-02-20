@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.btn_StartBackup = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sSHPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastBackup = new System.Windows.Forms.DataGridViewButtonColumn();
             this.StateBackup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastBackup = new System.Windows.Forms.DataGridViewButtonColumn();
             this.mikrotikListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new MikrotikSSHBackup.DataSet1();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -49,21 +50,34 @@
             this.tsb_Exit = new System.Windows.Forms.ToolStripButton();
             this.tsb_About = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbEncrypt = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsb_Email = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmConnectOverWinbox = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mikrotikListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_StartBackup
             // 
             this.btn_StartBackup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.SetColumnSpan(this.btn_StartBackup, 2);
-            this.btn_StartBackup.Location = new System.Drawing.Point(250, 353);
+            this.btn_StartBackup.Location = new System.Drawing.Point(250, 331);
             this.btn_StartBackup.Name = "btn_StartBackup";
             this.btn_StartBackup.Size = new System.Drawing.Size(134, 23);
             this.btn_StartBackup.TabIndex = 0;
@@ -80,10 +94,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.iPDataGridViewTextBoxColumn,
+            this.sSHPortDataGridViewTextBoxColumn,
             this.loginDataGridViewTextBoxColumn,
             this.passwordDataGridViewTextBoxColumn,
-            this.LastBackup,
-            this.StateBackup});
+            this.StateBackup,
+            this.LastBackup});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
             this.dataGridView1.DataSource = this.mikrotikListBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -93,11 +108,12 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(628, 336);
+            this.dataGridView1.Size = new System.Drawing.Size(628, 314);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             // 
             // nameDataGridViewTextBoxColumn
@@ -110,42 +126,51 @@
             // 
             // iPDataGridViewTextBoxColumn
             // 
+            this.iPDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.iPDataGridViewTextBoxColumn.DataPropertyName = "IP";
             this.iPDataGridViewTextBoxColumn.HeaderText = "IP";
             this.iPDataGridViewTextBoxColumn.Name = "iPDataGridViewTextBoxColumn";
             this.iPDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // sSHPortDataGridViewTextBoxColumn
+            // 
+            this.sSHPortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sSHPortDataGridViewTextBoxColumn.DataPropertyName = "SSHPort";
+            this.sSHPortDataGridViewTextBoxColumn.HeaderText = "SSHPort";
+            this.sSHPortDataGridViewTextBoxColumn.Name = "sSHPortDataGridViewTextBoxColumn";
+            this.sSHPortDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // loginDataGridViewTextBoxColumn
             // 
+            this.loginDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
             this.loginDataGridViewTextBoxColumn.HeaderText = "Login";
             this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
             this.loginDataGridViewTextBoxColumn.ReadOnly = true;
-            this.loginDataGridViewTextBoxColumn.Width = 120;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
+            this.passwordDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
             this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passwordDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // LastBackup
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = "LastBackup";
-            this.LastBackup.DefaultCellStyle = dataGridViewCellStyle5;
-            this.LastBackup.HeaderText = "LastBackup";
-            this.LastBackup.Name = "LastBackup";
-            this.LastBackup.ReadOnly = true;
-            this.LastBackup.Text = "LastBackup";
             // 
             // StateBackup
             // 
             this.StateBackup.HeaderText = "StateBackup";
             this.StateBackup.Name = "StateBackup";
             this.StateBackup.ReadOnly = true;
+            // 
+            // LastBackup
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "LastBackup";
+            this.LastBackup.DefaultCellStyle = dataGridViewCellStyle1;
+            this.LastBackup.HeaderText = "LastBackup";
+            this.LastBackup.Name = "LastBackup";
+            this.LastBackup.ReadOnly = true;
+            this.LastBackup.Text = "LastBackup";
             // 
             // mikrotikListBindingSource
             // 
@@ -167,6 +192,8 @@
             this.tsb_Exit,
             this.tsb_About,
             this.toolStripSeparator2,
+            this.tsbEncrypt,
+            this.toolStripSeparator3,
             this.tsb_Email});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -232,6 +259,22 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // tsbEncrypt
+            // 
+            this.tsbEncrypt.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbEncrypt.Image = global::MikrotikSSHBackup.Properties.Resources.lock_32x32;
+            this.tsbEncrypt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEncrypt.Name = "tsbEncrypt";
+            this.tsbEncrypt.Size = new System.Drawing.Size(67, 22);
+            this.tsbEncrypt.Text = "Encrypt";
+            this.tsbEncrypt.Click += new System.EventHandler(this.tsbEncrypt_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
             // tsb_Email
             // 
             this.tsb_Email.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -252,9 +295,10 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(634, 387);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
@@ -263,11 +307,85 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripProgressBar1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 390);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(634, 22);
+            this.statusStrip1.TabIndex = 11;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(600, 16);
+            this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmAdd,
+            this.cmEdit,
+            this.cmDelete,
+            this.cmCopy,
+            this.toolStripMenuItem1,
+            this.cmConnectOverWinbox});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 120);
+            // 
+            // cmAdd
+            // 
+            this.cmAdd.Image = global::MikrotikSSHBackup.Properties.Resources.add_32x32;
+            this.cmAdd.Name = "cmAdd";
+            this.cmAdd.Size = new System.Drawing.Size(188, 22);
+            this.cmAdd.Text = "Add";
+            this.cmAdd.Click += new System.EventHandler(this.cmAdd_Click);
+            // 
+            // cmEdit
+            // 
+            this.cmEdit.Image = global::MikrotikSSHBackup.Properties.Resources.edit_32x32;
+            this.cmEdit.Name = "cmEdit";
+            this.cmEdit.Size = new System.Drawing.Size(188, 22);
+            this.cmEdit.Text = "Edit";
+            this.cmEdit.Click += new System.EventHandler(this.cmEdit_Click);
+            // 
+            // cmDelete
+            // 
+            this.cmDelete.Image = global::MikrotikSSHBackup.Properties.Resources.delete_32x32;
+            this.cmDelete.Name = "cmDelete";
+            this.cmDelete.Size = new System.Drawing.Size(188, 22);
+            this.cmDelete.Text = "Delete";
+            this.cmDelete.Click += new System.EventHandler(this.cmDelete_Click);
+            // 
+            // cmCopy
+            // 
+            this.cmCopy.Image = global::MikrotikSSHBackup.Properties.Resources.redo_32x32;
+            this.cmCopy.Name = "cmCopy";
+            this.cmCopy.Size = new System.Drawing.Size(188, 22);
+            this.cmCopy.Text = "Copy";
+            this.cmCopy.Click += new System.EventHandler(this.cmCopy_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(185, 6);
+            // 
+            // cmConnectOverWinbox
+            // 
+            this.cmConnectOverWinbox.Image = global::MikrotikSSHBackup.Properties.Resources._20_02_2014_11_40_16_0000;
+            this.cmConnectOverWinbox.Name = "cmConnectOverWinbox";
+            this.cmConnectOverWinbox.Size = new System.Drawing.Size(188, 22);
+            this.cmConnectOverWinbox.Text = "Connect over Winbox";
+            this.cmConnectOverWinbox.Click += new System.EventHandler(this.cmConnectOverWinbox_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 412);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -282,6 +400,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,8 +412,6 @@
 
         private System.Windows.Forms.Button btn_StartBackup;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource mikrotikListBindingSource;
-        private DataSet1 dataSet1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsb_Add;
@@ -301,15 +420,29 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsb_Exit;
         private System.Windows.Forms.ToolStripButton tsb_About;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn LastBackup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StateBackup;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsb_Email;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sSHPortDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StateBackup;
+        private System.Windows.Forms.DataGridViewButtonColumn LastBackup;
+        private System.Windows.Forms.BindingSource mikrotikListBindingSource;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cmAdd;
+        private System.Windows.Forms.ToolStripMenuItem cmEdit;
+        private System.Windows.Forms.ToolStripMenuItem cmDelete;
+        private System.Windows.Forms.ToolStripMenuItem cmCopy;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cmConnectOverWinbox;
+        private System.Windows.Forms.ToolStripButton tsbEncrypt;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

@@ -40,6 +40,8 @@
             this.tb_Password = new System.Windows.Forms.TextBox();
             this.btn_Ok = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbSSHPort = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,24 +52,27 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.tb_Name, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tb_IP, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tb_Login, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tb_Password, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btn_Ok, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btn_Cancel, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.tb_Login, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tb_Password, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Ok, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Cancel, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tbSSHPort, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 219);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 274);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -87,27 +92,27 @@
             this.label2.Location = new System.Drawing.Point(76, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 0;
             this.label2.Text = "IP:";
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 106);
+            this.label3.Location = new System.Drawing.Point(68, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Login:";
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 151);
+            this.label4.Location = new System.Drawing.Point(58, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Password:";
             // 
             // tb_Name
@@ -116,7 +121,7 @@
             this.tb_Name.Location = new System.Drawing.Point(176, 12);
             this.tb_Name.Name = "tb_Name";
             this.tb_Name.Size = new System.Drawing.Size(158, 20);
-            this.tb_Name.TabIndex = 4;
+            this.tb_Name.TabIndex = 1;
             // 
             // tb_IP
             // 
@@ -124,32 +129,33 @@
             this.tb_IP.Location = new System.Drawing.Point(176, 57);
             this.tb_IP.Name = "tb_IP";
             this.tb_IP.Size = new System.Drawing.Size(158, 20);
-            this.tb_IP.TabIndex = 4;
+            this.tb_IP.TabIndex = 2;
             // 
             // tb_Login
             // 
             this.tb_Login.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tb_Login.Location = new System.Drawing.Point(176, 102);
+            this.tb_Login.Location = new System.Drawing.Point(176, 147);
             this.tb_Login.Name = "tb_Login";
             this.tb_Login.Size = new System.Drawing.Size(158, 20);
             this.tb_Login.TabIndex = 4;
+            this.tb_Login.Text = "admin";
             // 
             // tb_Password
             // 
             this.tb_Password.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tb_Password.Location = new System.Drawing.Point(176, 147);
+            this.tb_Password.Location = new System.Drawing.Point(176, 192);
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.Size = new System.Drawing.Size(158, 20);
-            this.tb_Password.TabIndex = 4;
+            this.tb_Password.TabIndex = 5;
             // 
             // btn_Ok
             // 
             this.btn_Ok.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btn_Ok.Location = new System.Drawing.Point(49, 191);
+            this.btn_Ok.Location = new System.Drawing.Point(49, 238);
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(75, 23);
-            this.btn_Ok.TabIndex = 5;
+            this.btn_Ok.TabIndex = 6;
             this.btn_Ok.Text = "Ok";
             this.btn_Ok.UseVisualStyleBackColor = true;
             // 
@@ -157,12 +163,31 @@
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Cancel.Location = new System.Drawing.Point(222, 191);
+            this.btn_Cancel.Location = new System.Drawing.Point(222, 238);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_Cancel.TabIndex = 5;
+            this.btn_Cancel.TabIndex = 7;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(59, 106);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "SSH Port:";
+            // 
+            // tbSSHPort
+            // 
+            this.tbSSHPort.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbSSHPort.Location = new System.Drawing.Point(176, 102);
+            this.tbSSHPort.Name = "tbSSHPort";
+            this.tbSSHPort.Size = new System.Drawing.Size(158, 20);
+            this.tbSSHPort.TabIndex = 3;
+            this.tbSSHPort.Text = "22";
             // 
             // Form_AddEdit
             // 
@@ -170,7 +195,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancel;
-            this.ClientSize = new System.Drawing.Size(346, 219);
+            this.ClientSize = new System.Drawing.Size(346, 274);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -196,5 +221,7 @@
         public System.Windows.Forms.TextBox tb_IP;
         public System.Windows.Forms.TextBox tb_Login;
         public System.Windows.Forms.TextBox tb_Password;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox tbSSHPort;
     }
 }

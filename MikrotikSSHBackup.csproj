@@ -49,20 +49,28 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class_Settings.cs" />
     <Compile Include="EmailStatic.cs" />
-    <Compile Include="Form_ProgressBar.cs">
+    <Compile Include="Form_Encryption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_ProgressBar.Designer.cs">
-      <DependentUpon>Form_ProgressBar.cs</DependentUpon>
+    <Compile Include="Form_Encryption.Designer.cs">
+      <DependentUpon>Form_Encryption.cs</DependentUpon>
     </Compile>
-    <Compile Include="Props.cs" />
+    <Compile Include="Form_RequestPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_RequestPassword.Designer.cs">
+      <DependentUpon>Form_RequestPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -111,14 +119,17 @@
     <EmbeddedResource Include="Form_Email.resx">
       <DependentUpon>Form_Email.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Encryption.resx">
+      <DependentUpon>Form_Encryption.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_LastBackup.resx">
       <DependentUpon>Form_LastBackup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_ProgressBar.resx">
-      <DependentUpon>Form_ProgressBar.cs</DependentUpon>
+    <EmbeddedResource Include="Form_RequestPassword.resx">
+      <DependentUpon>Form_RequestPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,6 +142,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -169,6 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\20.02.2014_11.40.16_0000.ico" />
+    <None Include="Resources\redo_32x32.png" />
+    <None Include="Resources\lock_32x32.png" />
     <None Include="Resources\mail_24x24.png" />
   </ItemGroup>
   <ItemGroup>
