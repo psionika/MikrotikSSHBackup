@@ -34,16 +34,16 @@ namespace MikrotikSSHBackup
             var arguments = Environment.GetCommandLineArgs();
 
             SettingAction.ReadXml();
-
-            if (!File.Exists("data.xml")) return;
-
+                        
             if (arguments.Length > 1 && arguments[1] == "Backup")
             {
+                if (!File.Exists("data.xml")) Environment.Exit(0);
+                
                 if (arguments.Length == 2 && !Settings.EncryptEnable)
-                {
+                {            
                     loadDataSet();
                     dataGridView1.DataSource = mikrotikListBindingSource;
-
+            
                     StartBackup();
                     SendEmailReport();
                     Environment.Exit(0);
@@ -329,12 +329,15 @@ namespace MikrotikSSHBackup
         #region SaveLoadDataSet
         private void saveDataSet()
         {
-            dataSet1.Tables["Email"].Rows[0]["Server"] = EmailStatic.EmailServer;
-            dataSet1.Tables["Email"].Rows[0]["Port"] = EmailStatic.EmailPort;
-            dataSet1.Tables["Email"].Rows[0]["EnableSSL"] = EmailStatic.EnableEmailSSL;
-            dataSet1.Tables["Email"].Rows[0]["User"] = EmailStatic.EmailUser;
-            dataSet1.Tables["Email"].Rows[0]["Password"] = EmailStatic.EmailPassword;
-            dataSet1.Tables["Email"].Rows[0]["Address"] = EmailStatic.EmailAddress;
+            if (EmailStatic.EmailAddress != null)
+            {
+                dataSet1.Tables["Email"].Rows[0]["Server"] = EmailStatic.EmailServer;
+                dataSet1.Tables["Email"].Rows[0]["Port"] = EmailStatic.EmailPort;
+                dataSet1.Tables["Email"].Rows[0]["EnableSSL"] = EmailStatic.EnableEmailSSL;
+                dataSet1.Tables["Email"].Rows[0]["User"] = EmailStatic.EmailUser;
+                dataSet1.Tables["Email"].Rows[0]["Password"] = EmailStatic.EmailPassword;
+                dataSet1.Tables["Email"].Rows[0]["Address"] = EmailStatic.EmailAddress;
+            }
 
             switch (Settings.EncryptEnable)
             {
